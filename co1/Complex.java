@@ -1,23 +1,21 @@
-import java.util.*;
-public class Complex
-{
-  public static void main(String[] args)
-  {
-    int a,b,c,d,real,img;
-    Scanner data=new Scanner(System.in);
-    System.out.println("Enter the real part of First Complex number: ");
-    a=data.nextInt();
-    System.out.println("Enter the imaginary part of First Complex number: ");
-    b=data.nextInt();
+public class complex {
+    int real;
+    int imaginary;
 
-    System.out.println("Enter the real part of second Complex number: ");
-    c=data.nextInt();
-    System.out.println("Enter the imaginary part of second Complex number: ");
-    d=data.nextInt();
-
-     real=a+c;
-     img=b+d;
-     System.out.println("sum of complex number :");
-     System.out.println(real+" + "+img+"i");
-   }
+    public complex(int real_get,int imag_get){
+        this.real = real_get;
+        this.imaginary = imag_get;
+    }
+    public static complex sum(complex c1,complex c2){
+        complex temp = new complex(0,0);
+        temp.real = c1.real + c2.real;
+        temp.imaginary = c1.imaginary + c2.imaginary;
+        return temp;
+    }
+    public static void main(String []args){
+        complex first = new complex(1,2);
+        complex second = new complex(32,22);
+        complex temp = sum(first,second);
+        System.out.println("Sum is : " + temp.real + "+" +temp.imaginary + "i");
+    }
 }
