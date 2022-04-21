@@ -1,59 +1,42 @@
 import java.util.Scanner;
- 
-public class symmetric
-{   
-	public static void main(String[] args)
-    	{
-       		Scanner sc = new Scanner(System.in);
-        	System.out.println("Enter the no. of rows : ");
-        	int rows = sc.nextInt();
-        	System.out.println("Enter the no. of columns : ");
-        	int cols = sc.nextInt();
-        	int matrix[][] = new int[rows][cols];
-        	System.out.println("Enter the elements :");
-        	for (int i = 0; i < rows; i++)
-        	{
-           		for (int j = 0; j < cols; j++)
-            		{
-                		matrix[i][j] = sc.nextInt();
-            		}
-        	}
-        	System.out.println("Printing the input matrix :"); 
-        	for (int i = 0; i < rows; i++)
-        	{
-            	for (int j = 0; j < cols; j++)
-            	{
-                	System.out.print(matrix[i][j]+"\t");
-            	}
-            	System.out.println();
-        	}
-        	if(rows != cols)
-        	{
-        	    	System.out.println("The given matrix is not a square matrix, so it can't be symmetric.");
-        	}
-        	else
-        	{
-        	    	boolean symmetric = true;
-        	    	for (int i = 0; i < rows; i++)
-        	    	{
-        	        	for (int j = 0; j < cols; j++)
-        	        	{
-        	            		if(matrix[i][j] != matrix[j][i])
-        	            		{
-        	                		symmetric = false;
-        	                		break;
-        	            		}
-        	        	}
-        	    	}     
-			if(symmetric)
-        		{
-				System.out.println("The given matrix is symmetric");
-        		}
-        		else
-        		{
-                		System.out.println("The given matrix is not symmetric");
-        		}
-        	}
-         
-    	}
+
+class Matrix{
+    int order;
+    int[][] matrix;
+
+    Matrix(int order){
+        this.order = order;
+        matrix = new int[order][order];
+    }
+
+    void MatrixCreation(Scanner read){
+        System.out.println("Enter the elements in "+ order+"x"+order+" matrix:");
+        for(int i=0; i<order; i++){
+            for (int j=0; j<order; j++){
+                matrix[i][j] = read.nextInt();
+            }
+        }
+    }
+    void isSymmetricMatrix(){
+        for(int i=0; i<order; i++){
+            for (int j=0; j<order; j++){
+                if (matrix[i][j] != matrix[j][i]){
+                    System.out.println("Given matrix is not a symmetric metrix");
+                    return;
+                }
+            }
+        }
+        System.out.println("Given metrix is a symmetric metrix");
+    }
+}
+public class SymmetricMatrix {
+    public static void main(String[] arg) {
+        int order;
+        Scanner read = new Scanner(System.in);
+        System.out.print("Enter the order of sqare metrix:");
+        order = read.nextInt();
+        Matrix m = new Matrix(order);
+        m.MatrixCreation(read);
+        m.isSymmetricMatrix();
+    }
 }
