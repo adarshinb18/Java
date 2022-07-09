@@ -1,21 +1,22 @@
-public class complex {
-    int real;
-    int imaginary;
+class AddComplexNumbers {
+    double real;
+    double image;
 
-    public complex(int real_get,int imag_get){
-        this.real = real_get;
-        this.imaginary = imag_get;
+    AddComplexNumbers(double real, double image) {
+        this.real = real;
+        this.image = image;
     }
-    public static complex sum(complex c1,complex c2){
-        complex temp = new complex(0,0);
-        temp.real = c1.real + c2.real;
-        temp.imaginary = c1.imaginary + c2.imaginary;
-        return temp;
+
+    void addition(AddComplexNumbers c1) {
+        System.out.println("Resulting Complex number : " + (image + c1.image) + " i"+ " + " + (real + c1.real) );
     }
-    public static void main(String []args){
-        complex first = new complex(1,2);
-        complex second = new complex(32,22);
-        complex temp = sum(first,second);
-        System.out.println("Sum is : " + temp.real + "+" +temp.imaginary + "i");
+}
+
+public class Complex {
+    public static void main(String[] str) {
+
+        AddComplexNumbers c1 = new AddComplexNumbers(4, 1);
+        AddComplexNumbers c2 = new AddComplexNumbers(5, 1);
+        c2.addition(c1);
     }
 }
