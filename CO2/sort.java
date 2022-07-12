@@ -1,40 +1,30 @@
 
-import java.util.Arrays;
 import java.util.Scanner;
-
-import javax.xml.transform.Templates;
-
-class Name {
-    String word;
-}
-
-public class Sort {
+public class sort {
     public static void main(String[] args) {
-        int temp;
-        Name str1 = new Name();
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter a String : ");
-        str1.word = sc.nextLine();
-
-        int length = str1.word.length();
-
-        char Sarr[] = str1.word.toCharArray();
-
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = i + 1; j < length; j++) {
-                if (Sarr[i] > Sarr[j]) {
-                    temp = Sarr[i];
-                    Sarr[i] = Sarr[j];
-                    Sarr[j] = (char) temp;
-                }
-
-            }
-
+        int i, j;
+        String temp;
+        System.out.println("How many string you want to enter:");
+        int n = sc.nextInt();
+        String[] str = new String[n];
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the Strings:");
+        for (i = 0; i < n; i++) {
+            str[i] = s.nextLine();
         }
-
-        System.out.println(new String(Sarr));
-
+        for (i = 0; i < n; i++) {
+            for (j = i + 1; j < n; j++) {
+                if (str[i].compareTo(str[j]) > 0) {
+                    temp = str[i];
+                    str[i] = str[j];
+                    str[j] = temp;
+                }
+            }
+        }
+        System.out.println("Strings in Sorted Order:");
+        for (i = 0; i <= n - 1; i++) {
+            System.out.println(str[i]);
+        }
     }
-
 }
