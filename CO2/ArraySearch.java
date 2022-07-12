@@ -1,32 +1,40 @@
 import java.util.Scanner;
-
-public class ArraySearch {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int size;
-        int elem;
-        System.out.println("Enter the size of the Array : ");
-        size = sc.nextInt();
-
-        int Iarr[] = new int[size];
-
-        System.out.println("Enter the Elements : ");
-        for (int i = 0; i < size; i++) {
-            Iarr[i] = sc.nextInt();
+public class ArraySearch
+{
+    public static void main(String[] args) 
+    {
+        int flag = 0, i = 0, n, m;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the number of elements in the array:");
+        n = s.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter the elements in the array:");
+        for(i = 0; i < n; i++)
+        {
+            a[i] = s.nextInt();
         }
-
-        System.out.println("Enter the element to be searched : ");
-        elem = sc.nextInt();
-
-        for (int i = 0; i < size; i++) {
-            if (Iarr[i] == elem) {
-                System.out.println(elem + " found at position " + (i + 1));
-                System.exit(0);
-                ;
+        System.out.print("Enter the element to be searched:");
+        m = s.nextInt();
+        for(i = 0; i < n; i++)
+        {
+            if(a[i] == m)
+            {
+                flag = 1;
+                break;
+            }
+            else
+            {
+                flag = 0;
             }
         }
-        System.out.println("Element not found!!!");
-
+        if(flag == 1)
+        {
+            System.out.println("The element found at position:"+(i + 1));
+        }
+        else
+        {
+            System.out.println("Element not found");
+        }
     }
-
 }
+
